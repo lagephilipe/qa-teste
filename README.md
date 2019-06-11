@@ -1,7 +1,4 @@
 # qa-teste
-cadastroUsuario.feature
-
-#language: pt
 
 Funcionalidade: Cadastro de Usuário
     Sendo um usuário do site
