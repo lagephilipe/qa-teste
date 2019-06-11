@@ -1,0 +1,77 @@
+[Binding]
+public class CadastroUsuario 
+{
+    private CADUSU _browser;
+ 
+     [Given(@"que estou na pagina de Cadastro")]
+    public void DadoQueEstouNaPaginaCadastro()
+    {
+        _browser = new IE("http://localhost:5100/CadastroUsuario");
+    }
+	
+    [Given(@"Preencho o campo 'Nome' com o conteudo Fernanda")]
+    public void dadopreenchonomecomfernanda()
+    {
+        _browser.TextField(Find.ByName("Nome")).TypeText("Fernanda");
+    }
+	
+	    [Given(@"Preencho o campo 'Último nome' com o conteudo Teixeira")]
+    public void dadopreenchoultimonomecomteixeira()
+    {
+        _browser.TextField(Find.ByName("Último nome")).TypeText("Teixeira");
+    }
+	
+	    [Given(@"Preencho o campo 'Email' com o conteudo fernanda12456@gmail.com.br")]
+    public void dadopreenchoemailcomfernanda12456@gmail.com.br()
+    {
+        _browser.TextField(Find.ByName("Email")).TypeText("fernanda12456@gmail.com.br");
+    }
+	
+		[Given(@"Preencho o campo 'Endereço' com o conteudo Rua X, 1234")]
+    public void dadopreenchoendereçocomRua_X_1234()
+    {
+       _browser.TextField(Find.ByName("Endereço")).TypeText("Rua X, 1234");
+    }
+	
+		[Given(@"Preencho o campo 'Universidade' com o conteudo Universidade")]
+    public void dadopreenchoUniversidadecomUniBH()
+    {
+        _browser.TextField(Find.ByName("Universidade")).TypeText("UniBH");
+    }
+	
+		[Given(@"Preencho o campo 'Profissao' com o conteudo QA")]
+    public void dadopreenchoprofissaocomQA()
+    {
+        _browser.TextField(Find.ByName("Profissao")).TypeText("QA");
+    }
+	
+			[Given(@"Preencho o campo 'Gênero' com o conteudo Feminino")]
+    public void dadopreenchogeneroFeminino()
+    {
+        _browser.TextField(Find.ByName("Gênero")).TypeText("Feminino");
+    }
+	
+			[Given(@"Preencho o campo 'Idade' com o conteudo 26")]
+    public void dadopreenchoidadecom26()
+    {
+        _browser.TextField(Find.ByName("Idade")).TypeText("26");
+    }
+	
+     [When(@"clico em Criar")]
+    public void QuandoClicoEmCriar()
+    {
+        _browser.Button(Find.ByValue("Criar")).Click();
+    }
+	
+    [Then(@"vejo 'Usuário Criado com sucesso'")]
+    public void EntaoVejoUsuarioCriadoComSucesso
+    {
+        _browser.ContainsText("Usuário Criado com sucesso").Should().BeTrue();
+    }
+ 
+    [AfterScenario]
+    public void FechaBrowser()
+    {
+        _browser.Dispose();
+    }
+}
