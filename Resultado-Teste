@@ -6,7 +6,7 @@ public class CadastroUsuario
      [Given(@"que estou na pagina de Cadastro")]
     public void DadoQueEstouNaPaginaCadastro()
     {
-        _browser = new IE("http://localhost:5100/CadastroUsuario");
+        _browser = new CADUSU("http://localhost:5100/CadastroUsuario");
     }
 	
       [Given(@"Preencho o campo 'Nome' com o conteudo Fernanda")]
